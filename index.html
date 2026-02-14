@@ -1,73 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For My Forever Valentine ❤️</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: linear-gradient(to right, #ff758c, #ff7eb3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Forever Valentine ❤️</title>
 
-        .container {
-            cursor: pointer;
-        }
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff4e73, #ff8fa3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .hidden {
-            display: none;
-        }
+/* Floating hearts */
+.heart {
+    position: absolute;
+    color: rgba(255,255,255,0.7);
+    animation: float 6s infinite ease-in;
+}
 
-        h1 {
-            font-size: 45px;
-            animation: fadeIn 2s ease-in-out;
-        }
+@keyframes float {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
 
-        p {
-            font-size: 28px;
-        }
+/* Love Card */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    width: 85%;
+    max-width: 400px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
 
-        .heart {
-            font-size: 60px;
-            animation: heartbeat 1s infinite;
-        }
+.card:hover {
+    transform: scale(1.05);
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+.hidden {
+    display: none;
+}
 
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
-        }
-    </style>
+h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 20px;
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.big-heart {
+    font-size: 55px;
+    animation: beat 1s infinite;
+}
+
+.signature {
+    margin-top: 20px;
+    font-size: 18px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@media (min-width: 768px) {
+    h1 { font-size: 32px; }
+    p { font-size: 24px; }
+}
+</style>
 </head>
+
 <body>
 
-<div class="container" onclick="showMessage()">
-    <h1 id="start">💌 Tauki, click here for your surprise 💌</h1>
+<div class="card" onclick="openLove()">
+    <div id="start">
+        <h1>💌 Tauki 💌</h1>
+        <p>Tap here to open your love letter ❤️</p>
+    </div>
 
     <div id="message" class="hidden">
-        <div class="heart">❤️</div>
-        <h1>I Love You Tauki ❤️</h1>
-        <p>Happy my forever Valentine 💖</p>
+        <div class="big-heart">❤️</div>
+        <h1>I Love You Tauki</h1>
+        <p>
+            You are my today,<br>
+            my tomorrow,<br>
+            and my forever Valentine 💖
+        </p>
+        <div class="signature">
+            From your love,<br>
+            Raj (Chopu) ❤️
+        </div>
     </div>
 </div>
 
 <script>
-    function showMessage() {
-        document.getElementById("start").style.display = "none";
-        document.getElementById("message").classList.remove("hidden");
-    }
+function openLove() {
+    document.getElementById("start").style.display = "none";
+    document.getElementById("message").classList.remove("hidden");
+}
+
+/* Floating hearts */
+for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+}
 </script>
 
 </body>
