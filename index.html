@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Forever Valentine ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1 {
+            font-size: 45px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-size: 28px;
+        }
+
+        .heart {
+            font-size: 60px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" onclick="showMessage()">
+    <h1 id="start">💌 Tauki, click here for your surprise 💌</h1>
+
+    <div id="message" class="hidden">
+        <div class="heart">❤️</div>
+        <h1>I Love You Tauki ❤️</h1>
+        <p>Happy my forever Valentine 💖</p>
+    </div>
+</div>
+
+<script>
+    function showMessage() {
+        document.getElementById("start").style.display = "none";
+        document.getElementById("message").classList.remove("hidden");
+    }
+</script>
+
+</body>
+</html>
